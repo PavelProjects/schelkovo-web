@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const { pathname } = window.location
 const axiosConfig = {
-  baseUrl: pathname,
+  baseURL: pathname,
   timeout: 5000,
   withCredentials: true
 }
