@@ -16,10 +16,19 @@ export default defineConfig({
     },
   },
   server: {
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8080/',
-        }
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080/',
       }
-    },
+    }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/script.js',
+        assetFileNames: 'assets/styles.css'
+      }
+    }
+  },
+  base: env.BASE_PATH ?? ''
 })

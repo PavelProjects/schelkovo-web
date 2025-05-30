@@ -1,9 +1,12 @@
 import axios from 'axios'
 
+const { pathname } = window.location
 const axiosConfig = {
+  baseUrl: pathname,
   timeout: 5000,
+  withCredentials: true
 }
-const adminAxios = axios.create({ ...axiosConfig, withCredentials: true })
+const adminAxios = axios.create(axiosConfig)
 
 const AdminAPI = {
   authenticate: async (username, password) => 
