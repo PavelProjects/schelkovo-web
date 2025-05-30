@@ -80,7 +80,6 @@ export default {
     <form
       v-else-if="!credentials.confirmed"
       class="vertical"
-      @submit.stop="() => authenticate()"
     >
       <h3>Требуется авторизация</h3>
       <p>Имя пользователя</p>
@@ -94,7 +93,9 @@ export default {
         type="password"
         autocomplete="password"
       />
-      <button @click.stop="authenticate">
+      <button
+        @click.stop="authenticate"
+      >
         {{ loading ? 'Загрузка' : 'Войти' }}
       </button>
     </form>
