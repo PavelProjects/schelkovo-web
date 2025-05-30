@@ -1,0 +1,15 @@
+@import './base.css';
+
+#app {
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--default-gap);
+}
+
+
