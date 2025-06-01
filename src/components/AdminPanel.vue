@@ -77,28 +77,29 @@ export default {
     <h1 v-if="credentials.confirmed === undefined">
       Загрузка
     </h1>
-    <form
-      v-else-if="!credentials.confirmed"
-      class="vertical"
-    >
-      <h3>Требуется авторизация</h3>
-      <p>Имя пользователя</p>
-      <input
-        v-model="credentials.username"
-        autocomplete="username"
-      />
-      <p>Пароль</p>
-      <input
-        v-model="credentials.password"
-        type="password"
-        autocomplete="password"
-      />
+    <div v-else-if="!credentials.confirmed" class="vertical">
+      <form class="vertical">
+        <h3>Требуется авторизация</h3>
+        <p>Имя пользователя</p>
+        <input
+          v-model="credentials.username"
+          autocomplete="username"
+          @keypress.enter="() => authenticate()"
+        />
+        <p>Пароль</p>
+        <input
+          v-model="credentials.password"
+          type="password"
+          autocomplete="password"
+          @keypress.enter="() => authenticate()"
+        />
+      </form>
       <button
         @click.stop="authenticate"
       >
         {{ loading ? 'Загрузка' : 'Войти' }}
       </button>
-    </form>
+    </div>
     <div v-else class="vertical">
       <p>Cтатус спота</p>
       <select
